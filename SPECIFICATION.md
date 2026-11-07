@@ -232,6 +232,7 @@ An implementation states its level as, for example, "OKM 0.1 Level 2".
 3. A minimal profile for executable rules (decision tables), aligned with UAPF and DMN.
 4. Mapping of `Indicator` values (time series) to the data platform: by reference only, or a small value model.
 5. A second agent operation set for writing: `propose` and `review`.
+6. A relation for a mention that is not a basis, implementation or amendment: `references` (Rule, Document → Rule, Document). See [proposals/0001-references.md](proposals/0001-references.md).
 
 ## 14. Normative and informative references
 
