@@ -1,0 +1,141 @@
+{
+  "@context": {
+    "@vocab": "https://okm-orgknowledgemodel.github.io/okm/ns#",
+    "@version": 1.1,
+    "okm": "https://okm-orgknowledgemodel.github.io/okm/ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "org": "http://www.w3.org/ns/org#",
+    "id": "@id",
+    "class": {
+      "@id": "@type",
+      "@type": "@vocab"
+    },
+    "label": {
+      "@id": "skos:prefLabel",
+      "@language": null
+    },
+    "nodes": {
+      "@id": "okm:node",
+      "@container": "@set"
+    },
+    "edges": {
+      "@id": "okm:edge",
+      "@container": "@set"
+    },
+    "aliases": {
+      "@id": "okm:alias",
+      "@container": "@set"
+    },
+    "scheme": "okm:scheme",
+    "value": "okm:value",
+    "subject": {
+      "@id": "rdf:subject",
+      "@type": "@id"
+    },
+    "predicate": {
+      "@id": "rdf:predicate",
+      "@type": "@vocab"
+    },
+    "object": {
+      "@id": "rdf:object",
+      "@type": "@id"
+    },
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "status": "okm:status",
+    "method": "okm:method",
+    "basis": {
+      "@id": "okm:basis",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "validFrom": {
+      "@id": "okm:validFrom",
+      "@type": "xsd:date"
+    },
+    "validTo": {
+      "@id": "okm:validTo",
+      "@type": "xsd:date"
+    },
+    "recordedAt": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "confidence": {
+      "@id": "okm:confidence",
+      "@type": "xsd:decimal"
+    },
+    "reviewedBy": {
+      "@id": "okm:reviewedBy",
+      "@type": "@id"
+    },
+    "reviewedAt": {
+      "@id": "okm:reviewedAt",
+      "@type": "xsd:dateTime"
+    },
+    "subClassOf": {
+      "@id": "okm:subClassOf",
+      "@type": "@vocab"
+    },
+    "subPropertyOf": {
+      "@id": "okm:subPropertyOf",
+      "@type": "@vocab"
+    },
+    "okmVersion": "okm:version",
+    "publisher": "okm:publisher",
+    "generatedAt": {
+      "@id": "okm:generatedAt",
+      "@type": "xsd:dateTime"
+    },
+    "note": "skos:note",
+    "Organisation": "okm:Organisation",
+    "Unit": "okm:Unit",
+    "Role": "okm:Role",
+    "Agent": "okm:Agent",
+    "Function": "okm:Function",
+    "Task": "okm:Task",
+    "Competence": "okm:Competence",
+    "Rule": "okm:Rule",
+    "Document": "okm:Document",
+    "Service": "okm:Service",
+    "Process": "okm:Process",
+    "Step": "okm:Step",
+    "System": "okm:System",
+    "Dataset": "okm:Dataset",
+    "Goal": "okm:Goal",
+    "Measure": "okm:Measure",
+    "Indicator": "okm:Indicator",
+    "BudgetLine": "okm:BudgetLine",
+    "Term": "okm:Term",
+    "Place": "okm:Place",
+    "partOf": "okm:partOf",
+    "supervisedBy": "okm:supervisedBy",
+    "roleIn": "okm:roleIn",
+    "holds": "okm:holds",
+    "responsibleFor": "okm:responsibleFor",
+    "performs": "okm:performs",
+    "hasCompetence": "okm:hasCompetence",
+    "partOfFunction": "okm:partOfFunction",
+    "establishes": "okm:establishes",
+    "contains": "okm:contains",
+    "amends": "okm:amends",
+    "supersedes": "okm:supersedes",
+    "implements": "okm:implements",
+    "realises": "okm:realises",
+    "hasStep": "okm:hasStep",
+    "invokes": "okm:invokes",
+    "uses": "okm:uses",
+    "produces": "okm:produces",
+    "contributesTo": "okm:contributesTo",
+    "measures": "okm:measures",
+    "funds": "okm:funds",
+    "defines": "okm:defines",
+    "classifiedAs": "okm:classifiedAs",
+    "broader": "okm:broader",
+    "locatedIn": "okm:locatedIn"
+  }
+}

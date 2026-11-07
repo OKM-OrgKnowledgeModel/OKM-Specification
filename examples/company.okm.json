@@ -1,0 +1,178 @@
+{
+  "@context": "https://okm-orgknowledgemodel.github.io/okm/context/okm.context.jsonld",
+  "okmVersion": "0.1.0",
+  "publisher": "Example Logistics Ltd (fictional)",
+  "generatedAt": "2026-11-07T20:00:00Z",
+  "note": "Company profile example. All names are fictional.",
+  "nodes": [
+    {
+      "id": "https://kb.example-logistics.test/org/example-logistics",
+      "class": "Organisation",
+      "label": "Example Logistics Ltd",
+      "aliases": [
+        {
+          "scheme": "company-register",
+          "value": "00000000000"
+        }
+      ],
+      "source": "https://kb.example-logistics.test/src/erp/company",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/unit/finance",
+      "class": "Unit",
+      "label": "Finance department",
+      "source": "https://kb.example-logistics.test/src/hr/org-chart",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/role/ap-clerk",
+      "class": "Role",
+      "label": "Accounts payable clerk",
+      "source": "https://kb.example-logistics.test/src/hr/org-chart",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/agent/invoice-agent",
+      "class": "Agent",
+      "label": "Invoice processing AI agent",
+      "validFrom": "2026-10-01",
+      "source": "https://kb.example-logistics.test/src/agents/registry",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/doc/finance-policy",
+      "class": "Document",
+      "label": "Finance policy v3",
+      "validFrom": "2026-01-01",
+      "source": "https://kb.example-logistics.test/src/dms/finance-policy-v3",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/doc/finance-policy.c4.2",
+      "class": "Rule",
+      "label": "4.2 Supplier invoices up to EUR 5 000 matching a purchase order are approved by accounts payable.",
+      "validFrom": "2026-01-01",
+      "source": "https://kb.example-logistics.test/src/dms/finance-policy-v3",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/fn/accounts-payable",
+      "class": "Function",
+      "label": "Accounts payable",
+      "source": "https://kb.example-logistics.test/src/hr/org-chart",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/task/approve-invoice",
+      "class": "Task",
+      "label": "Approve supplier invoices up to EUR 5 000 matching a purchase order",
+      "source": "https://kb.example-logistics.test/src/dms/finance-policy-v3",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/proc/purchase-to-pay",
+      "class": "Process",
+      "label": "Purchase to pay",
+      "source": "https://kb.example-logistics.test/src/processgit/p2p",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/sys/erp",
+      "class": "System",
+      "label": "ERP",
+      "source": "https://kb.example-logistics.test/src/cmdb/erp",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    }
+  ],
+  "edges": [
+    {
+      "id": "https://kb.example-logistics.test/e/1",
+      "subject": "https://kb.example-logistics.test/unit/finance",
+      "predicate": "partOf",
+      "object": "https://kb.example-logistics.test/org/example-logistics",
+      "status": "source",
+      "source": "https://kb.example-logistics.test/src/hr/org-chart",
+      "method": "extracted",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/e/2",
+      "subject": "https://kb.example-logistics.test/role/ap-clerk",
+      "predicate": "roleIn",
+      "object": "https://kb.example-logistics.test/unit/finance",
+      "status": "source",
+      "source": "https://kb.example-logistics.test/src/hr/org-chart",
+      "method": "extracted",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/e/3",
+      "subject": "https://kb.example-logistics.test/agent/invoice-agent",
+      "predicate": "holds",
+      "object": "https://kb.example-logistics.test/role/ap-clerk",
+      "status": "confirmed",
+      "source": "https://kb.example-logistics.test/src/agents/registry",
+      "method": "manual",
+      "reviewedBy": "https://kb.example-logistics.test/role/cfo",
+      "reviewedAt": "2026-09-28T09:00:00Z",
+      "validFrom": "2026-10-01",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/e/4",
+      "subject": "https://kb.example-logistics.test/doc/finance-policy",
+      "predicate": "contains",
+      "object": "https://kb.example-logistics.test/doc/finance-policy.c4.2",
+      "status": "source",
+      "source": "https://kb.example-logistics.test/src/dms/finance-policy-v3",
+      "method": "extracted",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/e/5",
+      "subject": "https://kb.example-logistics.test/doc/finance-policy.c4.2",
+      "predicate": "establishes",
+      "object": "https://kb.example-logistics.test/task/approve-invoice",
+      "status": "source",
+      "basis": "https://kb.example-logistics.test/doc/finance-policy.c4.2",
+      "source": "https://kb.example-logistics.test/src/dms/finance-policy-v3",
+      "method": "extracted",
+      "validFrom": "2026-01-01",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/e/6",
+      "subject": "https://kb.example-logistics.test/role/ap-clerk",
+      "predicate": "performs",
+      "object": "https://kb.example-logistics.test/task/approve-invoice",
+      "status": "source",
+      "basis": "https://kb.example-logistics.test/doc/finance-policy.c4.2",
+      "source": "https://kb.example-logistics.test/src/dms/finance-policy-v3",
+      "method": "extracted",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://kb.example-logistics.test/e/7",
+      "subject": "https://kb.example-logistics.test/task/approve-invoice",
+      "predicate": "partOfFunction",
+      "object": "https://kb.example-logistics.test/fn/accounts-payable",
+      "status": "derived",
+      "source": "https://kb.example-logistics.test/src/dms/finance-policy-v3",
+      "method": "rule",
+      "recordedAt": "2026-11-07T20:00:00Z",
+      "note": "Rule: tasks set by chapter 4 of the finance policy belong to accounts payable."
+    },
+    {
+      "id": "https://kb.example-logistics.test/e/8",
+      "subject": "https://kb.example-logistics.test/proc/purchase-to-pay",
+      "predicate": "uses",
+      "object": "https://kb.example-logistics.test/sys/erp",
+      "status": "proposed",
+      "confidence": 0.9,
+      "source": "https://kb.example-logistics.test/src/processgit/p2p",
+      "method": "model",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    }
+  ]
+}

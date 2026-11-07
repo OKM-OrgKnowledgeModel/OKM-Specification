@@ -1,0 +1,62 @@
+# OKM 0.1 — core SHACL shapes (draft)
+# Validates the RDF form of an OKM export (JSON-LD expanded with context/okm.context.jsonld).
+# Edges are reified statements (rdf:subject / rdf:predicate / rdf:object); shapes target every subject of rdf:predicate.
+
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix okm:  <https://okm-orgknowledgemodel.github.io/okm/ns#> .
+
+# Every node: one label, a source, a recording time.
+okm:NodeShape a sh:NodeShape ;
+  sh:targetClass okm:Organisation, okm:Unit, okm:Role, okm:Agent, okm:Function, okm:Task, okm:Competence,
+                 okm:Rule, okm:Document, okm:Service, okm:Process, okm:Step, okm:System, okm:Dataset,
+                 okm:Goal, okm:Measure, okm:Indicator, okm:BudgetLine, okm:Term, okm:Place ;
+  sh:property [ sh:path skos:prefLabel ; sh:minCount 1 ] ;
+  sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path prov:generatedAtTime ; sh:minCount 1 ; sh:datatype xsd:dateTime ] .
+
+# Every edge: subject, predicate, object, status, source, method, recording time.
+okm:EdgeShape a sh:NodeShape ;
+  sh:targetSubjectsOf rdf:predicate ;
+  sh:property [ sh:path rdf:subject ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rdf:predicate ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path rdf:object ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path okm:status ; sh:minCount 1 ; sh:maxCount 1 ;
+                sh:in ( "source" "derived" "proposed" "confirmed" "rejected" ) ] ;
+  sh:property [ sh:path okm:method ; sh:minCount 1 ; sh:in ( "extracted" "rule" "model" "manual" ) ] ;
+  sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path prov:generatedAtTime ; sh:minCount 1 ; sh:datatype xsd:dateTime ] .
+
+# A proposed edge carries a confidence.
+okm:ProposedEdgeShape a sh:NodeShape ;
+  sh:targetSubjectsOf rdf:predicate ;
+  sh:or ( [ sh:not [ sh:property [ sh:path okm:status ; sh:hasValue "proposed" ] ] ]
+          [ sh:property [ sh:path okm:confidence ; sh:minCount 1 ] ] ) .
+
+# A confirmed or rejected edge names its reviewer and review time.
+okm:ReviewedEdgeShape a sh:NodeShape ;
+  sh:targetSubjectsOf rdf:predicate ;
+  sh:or ( [ sh:property [ sh:path okm:status ; sh:in ( "source" "derived" "proposed" ) ] ]
+          [ sh:and ( [ sh:property [ sh:path okm:reviewedBy ; sh:minCount 1 ] ]
+                     [ sh:property [ sh:path okm:reviewedAt ; sh:minCount 1 ] ] ) ] ) .
+
+# Domain/range of core relations (section 5). Shown for a subset in 0.1; the full table follows in 0.2.
+okm:PartOfShape a sh:NodeShape ;
+  sh:targetSubjectsOf rdf:predicate ;
+  sh:or ( [ sh:not [ sh:property [ sh:path rdf:predicate ; sh:hasValue okm:partOf ] ] ]
+          [ sh:and ( [ sh:property [ sh:path rdf:subject ; sh:or ( [ sh:class okm:Organisation ] [ sh:class okm:Unit ] ) ] ]
+                     [ sh:property [ sh:path rdf:object  ; sh:or ( [ sh:class okm:Organisation ] [ sh:class okm:Unit ] ) ] ] ) ] ) .
+
+okm:ContainsShape a sh:NodeShape ;
+  sh:targetSubjectsOf rdf:predicate ;
+  sh:or ( [ sh:not [ sh:property [ sh:path rdf:predicate ; sh:hasValue okm:contains ] ] ]
+          [ sh:and ( [ sh:property [ sh:path rdf:subject ; sh:class okm:Document ] ]
+                     [ sh:property [ sh:path rdf:object  ; sh:class okm:Rule ] ] ) ] ) .
+
+okm:EstablishesShape a sh:NodeShape ;
+  sh:targetSubjectsOf rdf:predicate ;
+  sh:or ( [ sh:not [ sh:property [ sh:path rdf:predicate ; sh:hasValue okm:establishes ] ] ]
+          [ sh:property [ sh:path rdf:subject ; sh:class okm:Rule ] ] ) .

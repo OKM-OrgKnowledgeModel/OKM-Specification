@@ -1,0 +1,150 @@
+{
+  "@context": "https://okm-orgknowledgemodel.github.io/okm/context/okm.context.jsonld",
+  "okmVersion": "0.1.0",
+  "publisher": "PPPA VZB (example extract)",
+  "generatedAt": "2026-11-07T20:00:00Z",
+  "note": "Country profile example: Centrālā statistikas pārvalde (CSP), from the VDZP datasets B01 (VPK register) and B05 (institution statutes). Text quoted from the statute as published on likumi.lv. Base IRIs are illustrative; the VDZP resolver is not live yet. VPK ID is PPPA's own identifier, not an official state identifier.",
+  "extensions": {
+    "classes": [
+      {
+        "name": "Ministry",
+        "subClassOf": "Organisation",
+        "definition": "A ministry of the Republic of Latvia."
+      },
+      {
+        "name": "StatutePoint",
+        "subClassOf": "Rule",
+        "definition": "A point or sub-point of an institution statute."
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "https://lakehouse.pppa.lv/vpk/12-0000",
+      "class": "Ministry",
+      "label": "Ekonomikas ministrija",
+      "aliases": [
+        {
+          "scheme": "VPK ID",
+          "value": "12-0000"
+        }
+      ],
+      "source": "https://lakehouse.pppa.lv/datasets",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vpk/12-0039",
+      "class": "Organisation",
+      "label": "Centrālā statistikas pārvalde",
+      "aliases": [
+        {
+          "scheme": "VPK ID",
+          "value": "12-0039"
+        }
+      ],
+      "source": "https://lakehouse.pppa.lv/datasets",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039",
+      "class": "Document",
+      "label": "Centrālās statistikas pārvaldes nolikums",
+      "validFrom": "2018-12-01",
+      "source": "https://likumi.lv/ta/id/303355",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p1",
+      "class": "StatutePoint",
+      "label": "1. punkts: Centrālā statistikas pārvalde (turpmāk – pārvalde) ir ekonomikas ministra pārraudzībā esoša tiešās pārvaldes iestāde.",
+      "validFrom": "2018-12-01",
+      "source": "https://likumi.lv/ta/id/303355",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3",
+      "class": "StatutePoint",
+      "label": "4.3. apakšpunkts: [pārvalde] nodrošina statistikas plānošanu, izstrādi, datu iegūšanu, apstrādi un analīzi;",
+      "validFrom": "2018-12-01",
+      "source": "https://likumi.lv/ta/id/303355",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3/task",
+      "class": "Task",
+      "label": "Nodrošināt statistikas plānošanu, izstrādi, datu iegūšanu, apstrādi un analīzi",
+      "validFrom": "2018-12-01",
+      "source": "https://likumi.lv/ta/id/303355",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-fn-oficiala-statistika",
+      "class": "Function",
+      "label": "Oficiālās statistikas nodrošināšana",
+      "note": "Illustrative function identifier.",
+      "source": "https://lakehouse.pppa.lv/datasets",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    }
+  ],
+  "edges": [
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p1#e1",
+      "subject": "https://lakehouse.pppa.lv/vpk/12-0039",
+      "predicate": "supervisedBy",
+      "object": "https://lakehouse.pppa.lv/vpk/12-0000",
+      "status": "source",
+      "basis": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p1",
+      "source": "https://likumi.lv/ta/id/303355",
+      "method": "extracted",
+      "validFrom": "2018-12-01",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039#e2",
+      "subject": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039",
+      "predicate": "contains",
+      "object": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3",
+      "status": "source",
+      "source": "https://likumi.lv/ta/id/303355",
+      "method": "extracted",
+      "validFrom": "2018-12-01",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3#e3",
+      "subject": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3",
+      "predicate": "establishes",
+      "object": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3/task",
+      "status": "source",
+      "basis": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3",
+      "source": "https://likumi.lv/ta/id/303355",
+      "method": "extracted",
+      "validFrom": "2018-12-01",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3#e4",
+      "subject": "https://lakehouse.pppa.lv/vpk/12-0039",
+      "predicate": "performs",
+      "object": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3/task",
+      "status": "source",
+      "basis": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3",
+      "source": "https://likumi.lv/ta/id/303355",
+      "method": "extracted",
+      "validFrom": "2018-12-01",
+      "recordedAt": "2026-11-07T20:00:00Z"
+    },
+    {
+      "id": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3#e5",
+      "subject": "https://lakehouse.pppa.lv/vri/lv-nol-12-0039.p4.3/task",
+      "predicate": "partOfFunction",
+      "object": "https://lakehouse.pppa.lv/vri/lv-fn-oficiala-statistika",
+      "status": "proposed",
+      "confidence": 0.82,
+      "source": "https://likumi.lv/ta/id/303355",
+      "method": "model",
+      "recordedAt": "2026-11-07T20:00:00Z",
+      "note": "Suggested by a language model from the statute text; awaits review by the institution or PPPA."
+    }
+  ]
+}
