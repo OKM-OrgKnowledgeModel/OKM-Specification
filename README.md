@@ -19,7 +19,7 @@ OKM defines one model for that knowledge:
 - **permanent, resolvable identifiers** with aliases and date-pinned versions;
 - **five agent operations** — `resolve`, `neighbours`, `path`, `explain`, `search` — for example as MCP tools.
 
-Every term maps to existing open standards: W3C ORG, the EU SEMIC Core Vocabularies, ArchiMate, BPMN, SKOS, DCAT, PROV-O and ELI.
+Technically, OKM is a small **core ontology** with rules for evidence, time and identifiers, plus an AI agent interface. Every term maps to existing open standards: W3C ORG (The Organization Ontology), the EU SEMIC Core Vocabularies, ArchiMate, BPMN, SKOS, DCAT, PROV-O and ELI.
 
 ## Contents
 

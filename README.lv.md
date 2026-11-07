@@ -15,7 +15,7 @@ Modelis ir vienāds visos mērogos: komandai, uzņēmumam, valsts iestādei un v
 - **Pastāvīgi identifikatori** ar sinonīmiem citās sistēmās un versijām pēc datuma.
 - **Pieci MI aģentu vaicājumi** — `resolve`, `neighbours`, `path`, `explain`, `search` (piemēram, kā MCP rīki).
 
-Katrs termins ir sasaistīts ar esošajiem atvērtajiem standartiem: W3C ORG, ES SEMIC pamatvārdnīcām, ArchiMate, BPMN, SKOS, DCAT, PROV-O un ELI.
+Tehniski OKM ir neliela **pamatontoloģija** ar noteikumiem par pamatojumu, laiku un identifikatoriem, kā arī saskarne MI aģentiem. Katrs termins ir sasaistīts ar esošajiem atvērtajiem standartiem: W3C ORG (The Organization Ontology), ES SEMIC pamatvārdnīcām, ArchiMate, BPMN, SKOS, DCAT, PROV-O un ELI.
 
 ## Ieviesumi
 

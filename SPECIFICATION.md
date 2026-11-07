@@ -17,7 +17,7 @@ An **organisation knowledge base** is a versioned, machine-readable model of an 
 
 linked to the original texts and data, and queried by people and AI agents through stable operations.
 
-OKM is the specification of that model. It applies at every scale: a team, a company, a group of companies, a public institution, a whole country. A country is modelled as an organisation of organisations, using the same classes and relations.
+OKM is the specification of that model. Technically, OKM is a small **core ontology** — a fixed set of classes and relations with definitions, published in RDF (JSON-LD) and validated with SHACL — together with the rules for identifiers, evidence and time, and an interface for AI agents. It extends existing ontologies rather than replacing them (section 12). It applies at every scale: a team, a company, a group of companies, a public institution, a whole country. A country is modelled as an organisation of organisations, using the same classes and relations.
 
 A document store, a vector index or a data lakehouse is not an organisation knowledge base on its own. Those are inputs to it and indexes over it. The test of an OKM knowledge base is that it can answer *"who is responsible for X, on what basis, since when, and how do you know?"* with evidence for every part of the answer.
 
@@ -195,7 +195,7 @@ An implementation states its level as, for example, "OKM 0.1 Level 2".
 
 ## 12. Mappings to existing standards
 
-| OKM | W3C ORG | SEMIC Core Vocabularies | ArchiMate | Other |
+| OKM | W3C ORG (The Organization Ontology) | SEMIC Core Vocabularies | ArchiMate | Other |
 |---|---|---|---|---|
 | `Organisation` | `org:Organization`, `org:FormalOrganization` | `cpov:PublicOrganisation` (public sector) | Business Actor | schema.org `Organization` |
 | `Unit` | `org:OrganizationalUnit` | — | Business Actor | |
@@ -233,7 +233,25 @@ An implementation states its level as, for example, "OKM 0.1 Level 2".
 4. Mapping of `Indicator` values (time series) to the data platform: by reference only, or a small value model.
 5. A second agent operation set for writing: `propose` and `review`.
 
-## 14. Reference implementations
+## 14. Normative and informative references
+
+| Short name | Title | Publisher | Link |
+|---|---|---|---|
+| W3C ORG | The Organization Ontology, W3C Recommendation, 16 January 2014 (namespace `http://www.w3.org/ns/org#`) | W3C | https://www.w3.org/TR/vocab-org/ |
+| PROV-O | PROV-O: The PROV Ontology | W3C | https://www.w3.org/TR/prov-o/ |
+| OWL-Time | Time Ontology in OWL | W3C | https://www.w3.org/TR/owl-time/ |
+| SKOS | Simple Knowledge Organization System | W3C | https://www.w3.org/TR/skos-reference/ |
+| SHACL | Shapes Constraint Language | W3C | https://www.w3.org/TR/shacl/ |
+| JSON-LD 1.1 | JSON-LD 1.1 | W3C | https://www.w3.org/TR/json-ld11/ |
+| DCAT | Data Catalog Vocabulary | W3C | https://www.w3.org/TR/vocab-dcat/ |
+| SEMIC Core Vocabularies | Core Public Organisation (CPOV), Core Public Service (CPSV-AP), Core Business, Core Location and others | European Commission, SEMIC | https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/core-vocabularies |
+| ELI | European Legislation Identifier | EU Publications Office | https://op.europa.eu/en/web/eu-vocabularies/eli |
+| ArchiMate | ArchiMate Specification | The Open Group | https://www.opengroup.org/archimate-forum/archimate-overview |
+| BPMN | Business Process Model and Notation 2.0 | OMG | https://www.omg.org/spec/BPMN/2.0/ |
+| UAPF | Unified Algorithmic Process Format | UAPF | https://github.com/uapformat/uapf-spec |
+| RFC 2119 | Key words for use in RFCs to Indicate Requirement Levels | IETF | https://www.rfc-editor.org/rfc/rfc2119 |
+
+## 15. Reference implementations
 
 - **VZB (Valsts Zināšanu Bāze)** in VDZP — country profile for Latvia, built from public sources; PPPA (PPP Asociācija).
 - **Neksus Core** — company profile; Neksus AI.
